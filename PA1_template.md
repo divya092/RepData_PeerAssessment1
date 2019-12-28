@@ -4,7 +4,12 @@ output:
 html_document: 
 keep_md: true
 ---
-  
+
+
+```r
+knitr::opts_chunk$set(fig.path='Figs/')
+```
+
 ###Loading and preprocessing the data
   
 
@@ -71,7 +76,7 @@ g <- ggplot(StepsPerDay, aes(Steps))
 g+geom_histogram(boundary=0, binwidth=2500, col="darkgreen", fill="lightgreen")+ggtitle("Histogram of steps per day")+xlab("Steps")+ylab("Frequency")+theme(plot.title = element_text(face="bold", size=12))+scale_x_continuous(breaks=seq(0,25000,2500))+scale_y_continuous(breaks=seq(0,18,2))
 ```
 
-![plot of chunk histogram1](figure/histogram1-1.png)
+![plot of chunk histogram1](Figs/histogram1-1.png)
 
 
 **3. Mean and median of total number of steps taken per day**
@@ -114,7 +119,7 @@ h <- ggplot(StepsPerTime, aes(time, steps))
 h+geom_line(col="brown")+ggtitle("Average steps per time interval")+xlab("Time")+ylab("Steps")+theme(plot.title = element_text(face="bold", size=12))
 ```
 
-![plot of chunk timeplot1](figure/timeplot1-1.png)
+![plot of chunk timeplot1](Figs/timeplot1-1.png)
 
 **2. 5-minute interval (on average across all the days) with the maximum number of steps**
   
@@ -206,7 +211,7 @@ g <- ggplot(StepsPerDayFull, aes(Steps))
 g+geom_histogram(boundary=0, binwidth=2500, col="darkblue", fill="lightblue")+ggtitle("Histogram of steps per day")+xlab("Steps")+ylab("Frequency")+theme(plot.title = element_text(face="bold", size=12))+scale_x_continuous(breaks=seq(0,25000,2500))+scale_y_continuous(breaks=seq(0,26,2))
 ```
 
-![plot of chunk histogram2](figure/histogram2-1.png)
+![plot of chunk histogram2](Figs/histogram2-1.png)
 
 **4B. Calculate and report the mean and median total number of steps taken per day. Do these values differ from the estimates from the first part of the assignment? What is the impact of imputing missing data on the estimates of the total daily number of steps?**  
   
@@ -282,4 +287,4 @@ j <- ggplot(StepsPerTimeDT, aes(time, steps))
 j+geom_line(col="darkred")+ggtitle("Average steps per time interval: weekdays vs. weekends")+xlab("Time")+ylab("Steps")+theme(plot.title = element_text(face="bold", size=12))+facet_grid(DayType ~ .)
 ```
 
-![plot of chunk timeplot2](figure/timeplot2-1.png)
+![plot of chunk timeplot2](Figs/timeplot2-1.png)
